@@ -3,7 +3,7 @@ const createRequest= async ({id, payload, method}) => {
     const requestURL = method === 'delete' ? baseURL + `${id}` : baseURL;
     const request = await fetch(requestURL, {
         method: method,
-        header: {
+        headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload)
@@ -11,7 +11,8 @@ const createRequest= async ({id, payload, method}) => {
     if (!request.ok) {
         throw new Error('Что-то пошло не так...');
     }
-    const response = await request.json()
-    return response;
+    const response = await fetch(requestURL);
+    let json = response.json()
+    return json;
 }
-export default createRequest
+export default createRequest;

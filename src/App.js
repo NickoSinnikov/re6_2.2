@@ -37,7 +37,7 @@ function App() {
 
   const deleteNoteHandler = async (id) => {
       await createRequest({id, method: 'delete'});
-      const response = await createRequest({method: 'get'});
+      const response = createRequest({method: 'get'});
       setNotes([...response]);
   };
 

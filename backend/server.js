@@ -23,7 +23,7 @@ router.post('/notes', async(ctx, next) => {
     ctx.response.status = 204;
 });
 
-router.delete('/notes/:id', async(ctx, next) => {
+router.delete('/notes/id', async(ctx, next) => {
     const noteId = Number(ctx.params.id);
     const index = notes.findIndex(o => o.id === noteId);
     if (index !== -1) {
